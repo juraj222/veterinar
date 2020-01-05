@@ -1,2 +1,2 @@
-FROM nanoserver/iis
-COPY ./site/ /inetpub/wwwroot/ 
+FROM nginx:alpine
+COPY . /usr/share/nginx/html
