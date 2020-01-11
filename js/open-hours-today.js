@@ -5,13 +5,6 @@ var actual_day = new Date().getDay();
 document.getElementById("Dubi-today").innerHTML = open_dubi[actual_day-1];
 document.getElementById("Duchcov-today").innerHTML = open_duchcov[actual_day-1];
 
-var open_dubi = [ '18-16', '18-16', '18-16', '18-16', '18-19', '18-16', '18-16' ];
-var open_duchcov = [ '18-16', '18-16', '18-16', '18-16', '18-19', '18-16', '18-16' ];
-var cz_week = ['pondělí', 'úterý', 'středa', 'čtvrtek', 'pátek', 'sobota', 'neděle'];
-var actual_day = new Date().getDay();
-document.getElementById("Dubi-today").innerHTML = open_dubi[actual_day-1];
-document.getElementById("Duchcov-today").innerHTML = open_duchcov[actual_day-1];
-
 function generateWeekOpeningHoursTable(nameVet) {
     var result = "<table>";
     for(i = 0; i < cz_week.length; i++) {
