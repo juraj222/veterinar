@@ -1,29 +1,32 @@
-node {
-    def app
+pipeline {
+  agent { label 'master' }
+
+  stages {
 
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
+        steps {
+          git branch:'develop', url:'https://github.com/juraj222/veterinar.git'
 
-        git checkout develop
+        }
     }
-
-    stage('Build image') {
-        /* This builds the actual image; synonymous to
-         * docker build on the command line */
-
-        app = docker.build("webserver-image:v1")
-    }
-
-    stage('Test image') {
-        /* Ideally, we would run a test framework against our image.
-         * For this example, we're using a Volkswagen-type approach ;-) */
-
-        app.inside {
-            sh 'echo "Tests passed"'
+    stage('Prepare') {
+        steps {
+          // dir ('root/projects/veterinar') {
+            sh 'cleanBeforeBuild.sh'
+          // }
         }
     }
 
-    stage('Run docker image') {
-        sh 'docker run -d -p 80:80 webserver-image:v1'
+
+    stage('Build image and run') {
+        /* This builds the actual image; synonymous to
+         * docker build on the command line */
+        steps {
+          // dir ('root/projects/veterinar') {
+            sh 'buildDocker.sh'
+          // }
+        }
     }
+  }
 }
