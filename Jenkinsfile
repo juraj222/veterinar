@@ -13,7 +13,9 @@ pipeline {
     stage('Prepare') {
         steps {
           // dir ('root/projects/veterinar') {
-            sh 'cleanBeforeBuild.sh'
+            script{
+              sh 'cleanBeforeBuild.sh'
+            }
           // }
         }
     }
