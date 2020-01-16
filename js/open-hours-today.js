@@ -1,5 +1,5 @@
 var open_dubi = ['Zavřeno', '18–19', '18–19', '18–19', '18–19', '18–19', '18–19' ];
-var open_duchcov = ['Zavřeno', '9–11 14–16', '9–11 14–16:30', '9–11 14–16', '9–11 14–16:30', '9–11 14–16', 'Zavřeno' ];
+var open_duchcov = ['Zavřeno', '9–11, 14–16', '9–11, 14–16:30', '9–11, 14–16', '9–11, 14–16:30', '9–11, 14–16', 'Zavřeno' ];
 var cz_week = ['neděle', 'pondělí', 'úterý', 'středa', 'čtvrtek', 'pátek', 'sobota'];
 var actual_day = new Date().getDay();
 document.getElementById("Dubi-today").innerHTML = open_dubi[actual_day];
