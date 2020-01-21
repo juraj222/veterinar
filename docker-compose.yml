@@ -37,14 +37,14 @@ services:
     environment:
       - NGINX_DOCKER_GEN_CONTAINER=nginx-gen
 
-  sample-website:
+  veterinar:
     restart: always
-    image: sample-website
+    image: veterinar
     build: ./samples/website
-    container_name: sample-website
+    container_name: veterinar
     volumes:
-      - "./volumes/nginx-sample-website/conf.d/:/etc/nginx/conf.d"
-      - "./volumes/config/sample-website/config.js:/usr/share/nginx/html/config.js"
+      - "./volumes/nginx-veterinar/conf.d/:/etc/nginx/conf.d"
+      - "./volumes/config/veterinar/config.js:/usr/share/nginx/html/config.js"
     environment:
       - VIRTUAL_HOST=veterinar-dubi-duchcov.cz
       - VIRTUAL_NETWORK=nginx-proxy
