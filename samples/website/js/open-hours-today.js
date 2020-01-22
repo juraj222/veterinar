@@ -6,12 +6,18 @@ document.getElementById("Dubi-today").innerHTML = open_dubi[actual_day];
 document.getElementById("Duchcov-today").innerHTML = open_duchcov[actual_day];
 
 function generateWeekOpeningHoursTable(nameVet) {
-    var result = "<table>";
+    var result = "<table border=\"1\">";
     for(i = 1; i < cz_week.length; i++) {
-    	result += '<tr><td>' + cz_week[i] + '</td>' + '<td>' + nameVet[i] + '</td></tr>';
+    	result += getTableLine(i, nameVet);
     }
-    result += '<tr><td>' + cz_week[0] + '</td>' + '<td>' + nameVet[0] + '</td></tr>';
+    result += getTableLine(0, nameVet);
     return result += "</table>";
+}
+function getTableLine(num, nameVet){
+    if(nameVet[num].split(",").length > 1){
+        return '<tr><td>' + cz_week[num] + '</td><td>' + nameVet[num].split(",")[0] + '</td>' + '<td>' + nameVet[num].split(",")[1] + '</td></tr>';
+    }
+    return '<tr><td>' + cz_week[num] + '</td>' + '<td colspan="2">' + nameVet[num] + '</td></tr>';
 }
 document.getElementById("dubi-week").innerHTML = generateWeekOpeningHoursTable(open_dubi);
 document.getElementById("duchcov-week").innerHTML = generateWeekOpeningHoursTable(open_duchcov);
