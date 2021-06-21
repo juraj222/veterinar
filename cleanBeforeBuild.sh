@@ -5,4 +5,4 @@
 # else
 #     echo "docker already clean"
 # fi
-docker-compose down --rmi -f all
+docker-compose down --rmi all
